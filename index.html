@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR.HAYAT | Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW-jwgE5LBLrZcg2sGBrstzdTKDKVqgvf_pO7yST4gbT1YRYH2XQIIkHM_uSrRTQwJ-_3PE7qhYhuX5qI-XYoMUsAXJos-SGaaZpdVUfmWIIOCMK-4mxLj4KV13XNBETeoRMGWuZwxZF2kgCcmg0V-cAxDEkJ9FJ9Vu9JV7xXE0wS8pmgOYUUAzRNFvTI/s1600/channels4_profile.jpg">
+    
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #121826;
+            --accent-color: #00f2fe;
+            --accent-muted: #172237;
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            --inner-block: #1a2336;
+            --hover-bg: #1e293b;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --accent-color: #2563eb;
+            --accent-muted: #eff6ff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --inner-block: #f8fafc;
+            --hover-bg: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+            letter-spacing: -0.2px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .main-dashboard {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 12px;
+            max-width: 1020px;
+            width: 100%;
+            position: relative;
+        }
+
+        .sidebar-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .aesthetic-panel {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .sidebar-identity {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 16px;
+        }
+
+        .avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .sidebar-identity h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-identity h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .premium-quote {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            background: var(--inner-block);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .section-block h2, .sidebar-social h2 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .section-block h2 i, .sidebar-social h2 i {
+            color: var(--accent-color);
+        }
+
+        .content-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-text {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .spec-item {
+            background: var(--inner-block);
+            padding: 12px 14px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+        }
+
+        .spec-item i {
+            color: var(--accent-color);
+            width: 14px;
+            text-align: center;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag-cloud span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            background: var(--inner-block);
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .tag-cloud span:hover {
+            background: var(--accent-color);
+            color: #000000;
+        }
+
+        .project-pipeline {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .project-node {
+            background: var(--inner-block);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s ease;
+        }
+
+        .project-node .node-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-node .node-title i {
+            color: var(--accent-color);
+            width: 14px;
+        }
+
+        .project-node .node-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: var(--bg-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .project-node:hover {
+            background: var(--hover-bg);
+        }
+
+        .nodes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+
+        .nodes-grid a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--inner-block);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nodes-grid a i {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            width: 14px;
+            text-align: center;
+        }
+
+        .nodes-grid a:hover {
+            background: var(--brand-color);
+            color: #ffffff;
+        }
+
+        .nodes-grid a:hover i {
+            color: #ffffff;
+        }
+
+        .link-facebook  { --brand-color: #1877f2; }
+        .link-instagram { --brand-color: #f56040; }
+        .link-whatsapp  { --brand-color: #25d366; }
+        .link-telegram  { --brand-color: #0088cc; }
+        .link-twitter   { --brand-color: #1da1f2; }
+        .link-youtube   { --brand-color: #ff0000; }
+        .link-email     { --brand-color: #ea4335; }
+        .link-phone     { --brand-color: #000000; }
+        .link-github    { --brand-color: #000000; }
+
+        .system-toggle {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: var(--card-bg);
+            border: none;
+            font-size: 0.68rem;
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .system-toggle:hover {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 880px) {
+            body { padding: 60px 12px 20px; }
+
+            .main-dashboard {
+                display: flex;
+                flex-direction: column;
+                max-width: 480px;
+                gap: 12px;
+            }
+
+            .sidebar-column {
+                display: contents;
+            }
+
+            .sidebar-identity { order: 1; }
+            .content-stream { order: 2; }
+            .sidebar-social { order: 3; }
+
+            .system-toggle { top: -45px; right: 4px; }
+            .specs-grid { grid-template-columns: 1fr; gap: 6px; }
+            .project-node { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .project-node .node-meta { align-self: flex-end; }
+        }
+    </style>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+<body>
+
+<div class="main-dashboard">
+    <button class="system-toggle" id="themeBtn">Mode: Obsidian</button>
+
+    <div class="sidebar-column">
+       
+        <div class="aesthetic-panel sidebar-identity">
+            <div class="avatar-wrapper">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW-jwgE5LBLrZcg2sGBrstzdTKDKVqgvf_pO7yST4gbT1YRYH2XQIIkHM_uSrRTQwJ-_3PE7qhYhuX5qI-XYoMUsAXJos-SGaaZpdVUfmWIIOCMK-4mxLj4KV13XNBETeoRMGWuZwxZF2kgCcmg0V-cAxDEkJ9FJ9Vu9JV7xXE0wS8pmgOYUUAzRNFvTI/s1600/channels4_profile.jpg" alt="Habibur Rohman Hayat">
+            </div>
+            <h1>Habibur Rohman Hayat</h1>
+            <h3>AI Dev // Full Stack // SysAdmin</h3>
+            
+            <div class="premium-quote">
+                "Never Give Up. Every Expert Was Once a Beginner."
+            </div>
+        </div>
+
+        <div class="aesthetic-panel sidebar-social">
+            <h2><i class="fa-solid fa-network-wired"></i> Gateways</h2>
+            <div class="nodes-grid">
+                <a href="https://www.facebook.com/hrhayat85" target="_blank" class="link-facebook">
+                    <i class="fab fa-facebook"></i> <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/hrhayat85/" target="_blank" class="link-instagram">
+                    <i class="fab fa-instagram"></i> <span>Instagram</span>
+                </a>
+                <a href="https://wa.me/8801922422507" target="_blank" class="link-whatsapp">
+                    <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+                </a>
+                <a href="https://t.me/hrhayat85" target="_blank" class="link-telegram">
+                    <i class="fab fa-telegram"></i> <span>Telegram</span>
+                </a>
+                <a href="https://x.com/hrhayat85" target="_blank" class="link-twitter">
+                    <i class="fa-brands fa-twitter"></i><span>X / Twitter</span>
+                </a>
+                <a href="https://www.youtube.com/@hrhayat85" target="_blank" class="link-youtube">
+                    <i class="fab fa-youtube"></i> <span>YouTube</span>
+                </a>
+                <a href="mailto:hrhayat2008@gmail.com" class="link-email">
+                    <i class="fas fa-envelope"></i> <span>Email</span>
+                </a>
+                <a href="tel:+8801922422507" class="link-phone">
+                    <i class="fas fa-phone"></i> <span>Call Node</span>
+                </a>
+                <a href="https://github.com/hrhayat85" class="link-github">
+                    <i class="fa-brands fa-square-github"></i> <span>Github</span>
+                </a>
+                <a href="https://www.threads.com/@hrhayat85" class="link-github">
+                    <i class="fa-solid fa-retweet"></i> <span>Threads</span>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="aesthetic-panel content-stream">
+
+        <div class="section-block about">
+            <h2><i class="fa-solid fa-circle"></i> 01 / Identity Summary</h2>
+            <p class="about-text">
+Hello! I'm <b>Habibur Rohman Hayat,</b> an enthusiastic student and self-taught tech enthusiast from Bangladesh. Driven by a deep passion for modern technology, I love exploring new digital trends and independently mastering complex technical concepts. Alongside my analytical side, I have a great love for music, which keeps my creativity flowing and brings a balanced, fresh energy to everything I do. Eager to connect, learn, and grow in the tech world!
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fa-solid fa-graduation-cap"></i> 02 / Academic History</h2>
+            <div class="project-pipeline">
+                <div class="project-node">
+                    <div class="node-title">
+                        <i class="fas fa-university"></i> Sarishabari Govt. College
+                    </div>
+                    <div class="node-meta">HSC2027 // Code: 110216</div>
+                </div>
+                <div class="project-node">
+                    <div class="node-title">
+                        <i class="fas fa-school"></i> Sarishabari R.D.M Model Pilot High School
+                    </div>
+                    <div class="node-meta">SSC2025 // Code: 110159</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fa-solid fa-layer-group"></i> 03 / System & Personal Specs</h2>
+            <div class="specs-grid">
+                <div class="spec-item"><i class="fas fa-user-graduate"></i> <span>Role: Student & Creator</span></div>
+                <div class="spec-item"><i class="fas fa-map-marker-alt"></i> <span>Sarishabari, Dhaka, BD</span></div>
+                <div class="spec-item"><i class="fa-solid fa-kaaba"></i> <span>Religion: Islam</span></div>
+                <div class="spec-item"><i class="fas fa-heart"></i> <span>Status: Single (Dev Mode)</span></div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fa-solid fa-sliders"></i> 04 / Core Competencies</h2>
+            <div class="tag-cloud">
+                <span>python</span>
+                <span>web dev</span>
+                <span>FastAPI</span>
+                <span>AI_Automation</span>
+                <span>Linux_OS</span>
+                <span>Networking</span>
+                <span>windows program</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fa-solid fa-folder-open"></i> 05 / Active Repositories</h2>
+            <div class="project-pipeline">
+                <div class="project-node">
+                    <div class="node-title">Personal AI Assistant (JARVIS)</div>
+                    <div class="node-meta">v1.0 // Production</div>
+                </div>
+                <div class="project-node">
+                    <div class="node-title">Cloud Storage (NAS)</div>
+                    <div class="node-meta">Active // Secure</div>
+                </div>
+                <div class="project-node">
+                    <div class="node-title">Home Lab</div>
+                    <div class="node-meta">SysAdmin // Internal</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById('themeBtn');
+        
+        // ডার্ক/লাইট থিম কনফিগারেশন
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        toggleBtn.innerHTML = savedTheme === 'dark' ? 'Mode: Obsidian' : 'Mode: Snow';
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggleBtn.innerHTML = 'Mode: Snow';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                toggleBtn.innerHTML = 'Mode: Obsidian';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    });
+</script>
+
+<!-- Anti-Inspect Scripts -->
+<script>
+    // Right-Click Disable
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+
+    // Keyboard Shortcuts Disable
+    document.onkeydown = function(e) {
+        // F12
+        if (e.keyCode == 123) {
+            return false;
+        }
+        // Ctrl+Shift+I (Inspect)
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        // Ctrl+Shift+C (Inspect Element)
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        // Ctrl+Shift+J (Console)
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        // Ctrl+U (View Source)
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>
