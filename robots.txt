@@ -1,0 +1,5 @@
+# robots.txt for Habibur Rohman Hayat (www.hrhayat.top)
+User-agent: *
+Allow: /
+
+Sitemap: https://www.hrhayat.top/sitemap.xml
